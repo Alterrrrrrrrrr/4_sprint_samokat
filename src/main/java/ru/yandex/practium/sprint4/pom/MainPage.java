@@ -43,7 +43,7 @@ public class MainPage extends BasePage {
     }
 
     // проверка доступности ответа на вопрос
-    public boolean isAnswerDisplayed(String questionNumber) {
+    public String getAnswerDisplayed(String questionNumber) {
         // локатор ответа в зависимости от переменной
         By answerLocator;
         String answerId = String.format("accordion__panel-%s", questionNumber);
@@ -52,7 +52,7 @@ public class MainPage extends BasePage {
         WebElement answerElement = driver.findElement(answerLocator);
         // ожидание доступности ответа
         waitElementToBeClickable(answerElement);
-        return answerElement.isDisplayed();
+        return answerElement.getText();
     }
 
     // метод клика по верхней или нижней кнопке заказа самоката

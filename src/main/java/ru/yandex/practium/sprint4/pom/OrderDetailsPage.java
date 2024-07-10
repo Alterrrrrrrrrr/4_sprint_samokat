@@ -38,8 +38,8 @@ public class OrderDetailsPage extends BasePage {
 
 
     // проверка доступности заголовка страницы
-    public void isRentHeaderVisible() {
-        driver.findElement(RENT_DETAILS_HEADER).isDisplayed();
+    public boolean isRentHeaderVisible() {
+        return driver.findElement(RENT_DETAILS_HEADER).isDisplayed();
     }
 
     // ввод даты доставки

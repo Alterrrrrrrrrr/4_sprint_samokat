@@ -52,8 +52,8 @@ public class OrderPage extends BasePage{
 
 
     // проверка отображения заголовка формы заказа
-    public void isOrderFormHeaderVisible() {
-        driver.findElement(ORDER_FORM_HEADER).isDisplayed();
+    public boolean isOrderFormHeaderVisible() {
+        return driver.findElement(ORDER_FORM_HEADER).isDisplayed();
     }
 
     // заполнение поля c определенным локатором данными

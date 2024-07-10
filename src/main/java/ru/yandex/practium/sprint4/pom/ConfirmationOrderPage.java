@@ -17,10 +17,9 @@ public class ConfirmationOrderPage extends BasePage {
     }
 
     // проверка отображения вопроса о подтверждении заказа
-    public void isConfirmQuestionIsVisible() {
-        driver.findElement(CONFIRMATION_QUESTION).isDisplayed();
+    public boolean isConfirmationQuestionVisible() {
+        return driver.findElement(CONFIRMATION_QUESTION).isDisplayed();
     }
-
     // Метод кликает по кнопке подтверждения заказа
     public void clickOnConfirmationButton() {
         waitElementToBeClickable(CONFIRMATION_BUTTON);

@@ -4,6 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import ru.yandex.practium.sprint4.pom.*;
 
+
 @RunWith(Parameterized.class)
 // Класс для тестирования заказа самоката
 public class OrderScooterTest extends BaseTest {
@@ -53,7 +54,8 @@ public class OrderScooterTest extends BaseTest {
 
         // экземпляр класса страницы формы заказа
         OrderPage orderPage = new OrderPage(driver);
-        orderPage.isOrderFormHeaderVisible(); // проверка отображения заголовка формы заказа
+        Assert.assertTrue(orderPage.isOrderFormHeaderVisible()); // проверка отображения заголовка формы заказа
+
         orderPage.enterData(orderPage.getNameLocator(), name); // ввод имени
         orderPage.enterData(orderPage.getSurnameLocator(), surname); // ввод фамилии
         orderPage.enterData(orderPage.getAddressLocator(), adress); // ввод адреса
@@ -63,7 +65,8 @@ public class OrderScooterTest extends BaseTest {
 
         // экземпляр класса страницы детали арендф
         OrderDetailsPage orderDetailsPage = new OrderDetailsPage(driver);
-        orderDetailsPage.isRentHeaderVisible(); // проверка отображения ли заголовок про аренду
+        Assert.assertTrue(orderDetailsPage.isRentHeaderVisible()); // проверка отображения ли заголовок про аренду
+
         orderDetailsPage.enterDeliveryDate(); // ввод даты доставки
         orderDetailsPage.chooseRentalPeriod(rentalPeriod); // выбор срока ареды
         orderDetailsPage.chooseColor(colour); // выбор цвета самоката
@@ -72,7 +75,8 @@ public class OrderScooterTest extends BaseTest {
 
         // экземпляр класса окна с вопросом о подтверждении заказа
         ConfirmationOrderPage confirmationOrderPage = new ConfirmationOrderPage(driver);
-        confirmationOrderPage.isConfirmQuestionIsVisible(); // проверка доступности вопроса о подтверждении заказа
+        Assert.assertTrue(confirmationOrderPage.isConfirmationQuestionVisible()); // проверка доступности вопроса о подтверждении заказа
+
         confirmationOrderPage.clickOnConfirmationButton(); // клик на кнопку подтверждения заказа
 
         // экземпляр класса окна с сообщением об успешном создании заказа
